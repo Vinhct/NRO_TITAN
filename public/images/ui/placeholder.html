@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    .container {
+      display: flex;
+      gap: 20px;
+      padding: 20px;
+      background: #1a1a1a;
+    }
+
+    .dragon-silhouette {
+      width: 300px;
+      height: 300px;
+      background: linear-gradient(45deg, #ff8a00, #e52e71);
+      mask: radial-gradient(circle at center, black 40%, transparent 60%);
+      -webkit-mask: radial-gradient(circle at center, black 40%, transparent 60%);
+      border-radius: 50%;
+    }
+
+    .logo {
+      width: 400px;
+      height: 100px;
+      background: linear-gradient(135deg, #FFA500, #FF6B00);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-family: Impact, sans-serif;
+      font-size: 36px;
+      letter-spacing: 2px;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .logo::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle at center, rgba(255, 255, 255, 0.2), transparent 70%);
+      animation: rotate 10s linear infinite;
+    }
+
+    @keyframes rotate {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="dragon-silhouette"></div>
+    <div class="logo">DRAGON REALM</div>
+  </div>
+</body>
+</html> 

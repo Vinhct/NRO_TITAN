@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    .timeline-image {
+      width: 400px;
+      height: 200px;
+      background: linear-gradient(135deg, #000000, #434343);
+      border-radius: 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 20px;
+      box-sizing: border-box;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .timeline-image::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(circle at center, rgba(255, 165, 0, 0.3), transparent 70%);
+      animation: pulse 2s infinite;
+    }
+
+    .era-title {
+      font-size: 28px;
+      font-weight: bold;
+      margin-bottom: 10px;
+      text-shadow: 0 0 10px rgba(255, 165, 0, 0.5);
+      z-index: 1;
+    }
+
+    .era-year {
+      font-size: 18px;
+      opacity: 0.8;
+      z-index: 1;
+    }
+
+    @keyframes pulse {
+      0% { opacity: 0.3; }
+      50% { opacity: 0.6; }
+      100% { opacity: 0.3; }
+    }
+  </style>
+</head>
+<body>
+  <div class="timeline-image">
+    <div class="era-title">Dragon Ball Z</div>
+    <div class="era-year">Age 761-774</div>
+  </div>
+</body>
+</html> 

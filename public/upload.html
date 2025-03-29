@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Tải ảnh lên</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+    h1 {
+      text-align: center;
+    }
+    .upload-form {
+      border: 1px solid #ddd;
+      padding: 20px;
+      border-radius: 5px;
+    }
+    input[type="file"] {
+      display: block;
+      margin: 10px 0;
+      width: 100%;
+    }
+    button {
+      background: #4CAF50;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>Tải ảnh Banner</h1>
+  <div class="upload-form">
+    <p>Chọn file ảnh Dragon Ball để tải lên:</p>
+    <input type="file" id="imageUpload" accept="image/*">
+    <button onclick="handleUpload()">Tải lên</button>
+  </div>
+
+  <script>
+    function handleUpload() {
+      const fileInput = document.getElementById('imageUpload');
+      const file = fileInput.files[0];
+      
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+          const img = document.createElement('img');
+          img.src = e.target.result;
+          img.style.maxWidth = '100%';
+          img.style.marginTop = '20px';
+          
+          // Tạo đường dẫn tới file
+          const link = document.createElement('a');
+          link.href = e.target.result;
+          link.download = 'dragon-ball-banner.jpg';
+          link.textContent = 'Tải xuống ảnh';
+          link.style.display = 'block';
+          link.style.marginTop = '10px';
+          
+          document.body.appendChild(img);
+          document.body.appendChild(link);
+          
+          // Thông báo
+          alert('Hãy lưu ảnh này vào thư mục public/images/backgrounds với tên dragon-ball-banner.jpg');
+        };
+        reader.readAsDataURL(file);
+      } else {
+        alert('Vui lòng chọn một file ảnh!');
+      }
+    }
+  </script>
+</body>
+</html> 
